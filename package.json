@@ -16,7 +16,7 @@
     "@types/react-syntax-highlighter": "^15.5.13",
     "clsx": "^2.1.1",
     "gray-matter": "^4.0.3",
-    "next": "15.4.2",
+    "next": "15.4.10",
     "next-mdx-remote": "^5.0.0",
     "puppeteer": "^24.33.0",
     "react": "19.1.0",
