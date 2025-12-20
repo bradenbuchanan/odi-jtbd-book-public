@@ -1,0 +1,35 @@
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .main-content-area {
+    padding: 2rem 2rem;
+  }
+
+  /* Hide sidebars on mobile */
+  .toc-container,
+  .on-this-page-container {
+    display: none;
+  }
+
+  /* Make theme toggle visible on mobile */
+  .theme-toggle-button {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1000;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-content-area {
+    padding: 0.75rem;
+  }
+
+  .chapter-title {
+    font-size: 2rem;
+  }
+
+  .chapter-metadata-info {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+}

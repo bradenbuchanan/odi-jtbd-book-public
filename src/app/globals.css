@@ -1,0 +1,15 @@
+@import 'tailwindcss';
+
+/* Import organized styles */
+@import '../styles/base/reset.css';
+@import '../styles/base/themes.css';
+@import '../styles/layout/grid.css';
+@import '../styles/layout/containers.css';
+@import '../styles/layout/responsive.css';
+@import '../styles/typography/prose.css';
+@import '../styles/components/toc.css';
+@import '../styles/components/sidebar.css';
+@import '../styles/components/navigation.css';
+@import '../styles/components/theme-toggle.css';
+@import '../styles/components/sidebar-toggle.css';
+@import '../styles/components/reading-progress.css';

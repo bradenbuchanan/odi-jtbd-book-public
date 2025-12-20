@@ -1,0 +1,14 @@
+# Data Files Directory
+
+This directory contains downloadable survey data and research datasets referenced in the book content.
+
+## File Structure:
+- notion-survey-raw-data.csv - Raw survey responses from 300 Notion users
+- factor-analysis-results.csv - Processed factor analysis results 
+- maxdiff-survey-data.csv - MaxDiff analysis survey responses
+- user-interview-demographics.csv - Interview participant demographics
+
+## Usage:
+Place your CSV files here and reference them in MDX content using:
+- Simple links: [Download Data](/data/filename.csv)
+- Styled component: <DownloadLink href="/data/filename.csv" filename="filename.csv">Download</DownloadLink>

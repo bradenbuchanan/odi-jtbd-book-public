@@ -1,0 +1,70 @@
+/* Main Layout - Responsive 3 Column Structure */
+.main-page-container {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr) 260px;
+  min-height: 100vh;
+  width: 100%;
+  max-width: 100%;
+  gap: 0;
+  /* Removed overflow-x: hidden as it breaks position: sticky */
+  /* The grid columns are fixed width, so horizontal scroll shouldn't occur */
+}
+
+.main-column-wrapper {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  min-height: 100vh;
+  background: var(--color-bg-primary);
+  overflow-x: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1400px) {
+  .main-page-container {
+    grid-template-columns: 260px minmax(0, 1fr) 240px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .main-page-container {
+    grid-template-columns: 240px minmax(0, 1fr) 220px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .main-page-container {
+    grid-template-columns: 240px minmax(0, 1fr);
+  }
+
+  /* Hide right sidebar on tablets */
+  .main-page-container > *:last-child {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-page-container {
+    grid-template-columns: 1fr;
+    position: relative;
+  }
+
+  /* Hide left sidebar on mobile, show as overlay when needed */
+  .main-page-container > *:first-child {
+    position: fixed;
+    left: -100%;
+    top: 0;
+    z-index: 50;
+    width: 280px;
+    height: 100vh;
+    transition: left 0.3s ease;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .main-column-wrapper {
+    border-left: none;
+    border-right: none;
+  }
+}

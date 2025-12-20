@@ -1,0 +1,370 @@
+/* ============================================
+   PRINT STYLES - PDF Generation
+   ============================================ */
+
+/* Page setup */
+@page {
+  size: letter;
+  margin: 1in 0.75in;
+}
+
+@page :first {
+  margin-top: 0;
+}
+
+/* Force light theme colors for print */
+:root {
+  --color-bg-primary: #FFFFFF !important;
+  --color-bg-secondary: #F9FAFB !important;
+  --color-text-primary: #0F172A !important;
+  --color-text-secondary: #475569 !important;
+  --color-accent-primary: #0F766E !important;
+  --color-border-primary: #E2E8F0 !important;
+  --color-code-bg: #F8FAFC !important;
+  --color-code-text: #0F766E !important;
+}
+
+/* Base print styles - CRITICAL: override height constraints for page breaks */
+html {
+  height: auto !important;
+  overflow: visible !important;
+}
+
+body {
+  height: auto !important;
+  overflow: visible !important;
+  background: white !important;
+  color: #0F172A !important;
+  font-size: 11pt;
+  line-height: 1.6;
+}
+
+/* Chapter separators */
+.print-chapter {
+  page-break-before: always;
+}
+
+.print-chapter:first-child {
+  page-break-before: auto;
+}
+
+/* Page break classes - used by full-book print page */
+.page-break-before {
+  display: block !important;
+  page-break-before: always !important;
+  break-before: page !important;
+}
+
+.page-break-after {
+  display: block !important;
+  page-break-after: always !important;
+  break-after: page !important;
+}
+
+@media print {
+  .page-break-before {
+    display: block !important;
+    page-break-before: always !important;
+    break-before: page !important;
+  }
+
+  .page-break-after {
+    display: block !important;
+    page-break-after: always !important;
+    break-after: page !important;
+  }
+}
+
+/* Avoid breaking inside important elements */
+h1, h2, h3, h4, h5, h6 {
+  page-break-after: avoid;
+  page-break-inside: avoid;
+}
+
+figure, table, pre, blockquote {
+  page-break-inside: avoid;
+}
+
+img {
+  page-break-inside: avoid;
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+/* Keep headings with following content */
+h1, h2, h3, h4 {
+  break-after: avoid;
+}
+
+p {
+  orphans: 3;
+  widows: 3;
+}
+
+/* Tables */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 10pt;
+  page-break-inside: avoid;
+}
+
+th, td {
+  border: 1px solid #d1d5db !important;
+  padding: 8px 12px !important;
+  text-align: left;
+}
+
+th {
+  background-color: #f3f4f6 !important;
+  font-weight: 600;
+}
+
+/* Table wrapper */
+.table-wrapper,
+div[style*="overflow"] {
+  overflow: visible !important;
+}
+
+/* Code blocks */
+pre {
+  background-color: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 6px;
+  padding: 12px 16px !important;
+  font-size: 9pt;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  page-break-inside: avoid;
+  color: #1e293b !important;
+}
+
+pre * {
+  color: #1e293b !important;
+}
+
+code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9pt;
+  color: #1e293b !important;
+}
+
+/* Inline code */
+p code, li code {
+  background-color: #f3f4f6 !important;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* Links - show URL for external links in print */
+a {
+  color: #0F766E !important;
+  text-decoration: none;
+}
+
+/* Images */
+.book-image-container,
+figure {
+  margin: 1.5em 0;
+  page-break-inside: avoid;
+}
+
+.book-image-container img,
+figure img {
+  max-width: 100%;
+  height: auto;
+}
+
+figcaption,
+.image-caption {
+  font-size: 9pt;
+  color: #64748b;
+  text-align: center;
+  margin-top: 0.5em;
+}
+
+/* Chapter header styling */
+.print-chapter-header {
+  margin-bottom: 2em;
+  padding-bottom: 1em;
+  border-bottom: 2px solid #0F766E;
+}
+
+.print-chapter-header h1 {
+  font-size: 24pt;
+  font-weight: 700;
+  color: #0F172A;
+  margin: 0 0 0.5em 0;
+}
+
+.print-chapter-meta {
+  font-size: 10pt;
+  color: #64748b;
+}
+
+/* Section dividers */
+.print-section-divider {
+  margin: 2em 0;
+  text-align: center;
+  page-break-before: always;
+}
+
+.print-section-divider h2 {
+  font-size: 18pt;
+  color: #0F766E;
+}
+
+/* Blockquotes */
+blockquote {
+  border-left: 4px solid #0F766E !important;
+  padding-left: 1em;
+  margin: 1em 0;
+  font-style: italic;
+  color: #475569;
+}
+
+/* Lists */
+ul, ol {
+  margin: 1em 0;
+  padding-left: 2em;
+}
+
+li {
+  margin: 0.25em 0;
+}
+
+/* Math equations (KaTeX) */
+.katex {
+  font-size: 1em;
+}
+
+/* Hide interactive/web-only elements */
+.no-print,
+.theme-toggle,
+.sidebar-toggle,
+.reading-progress,
+.toc-container,
+.on-this-page,
+nav[aria-label="Chapter navigation"],
+button,
+.zoom-overlay {
+  display: none !important;
+}
+
+/* Download links - show as text */
+.download-link {
+  color: #0F766E !important;
+}
+
+/* Book cover page */
+.print-cover {
+  page-break-after: always;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+  text-align: center;
+}
+
+.print-cover h1 {
+  font-size: 36pt;
+  font-weight: 700;
+  color: #0F172A;
+  margin-bottom: 0.5em;
+}
+
+.print-cover .subtitle {
+  font-size: 14pt;
+  color: #64748b;
+  margin-bottom: 2em;
+}
+
+.print-cover .author {
+  font-size: 14pt;
+  color: #475569;
+}
+
+/* Table of contents for print */
+.print-toc {
+  page-break-after: always;
+}
+
+.print-toc h2 {
+  font-size: 18pt;
+  margin-bottom: 1em;
+}
+
+.print-toc ul {
+  list-style: none;
+  padding: 0;
+}
+
+.print-toc li {
+  margin: 0.5em 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.print-toc .chapter-title {
+  flex: 1;
+}
+
+.print-toc .page-number {
+  text-align: right;
+}
+
+/* Prose content area */
+.prose {
+  max-width: none !important;
+  font-size: 11pt;
+}
+
+.prose h2 {
+  font-size: 16pt;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  color: #0F172A;
+}
+
+.prose h3 {
+  font-size: 13pt;
+  margin-top: 1.25em;
+  margin-bottom: 0.5em;
+  color: #0F172A;
+}
+
+.prose p {
+  margin: 0.75em 0;
+}
+
+/* R Output styling */
+.r-output {
+  background-color: #f8fafc !important;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  padding: 12px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9pt;
+  white-space: pre-wrap;
+}
+
+/* R Output component - force dark readable text for PDF */
+.r-output pre,
+div:has(> .r-output) pre,
+div.group pre {
+  color: #1e293b !important;
+  background-color: #f8fafc !important;
+}
+
+/* Target the ROutput component structure specifically */
+div.relative.group pre,
+div.relative.group pre * {
+  color: #1e293b !important;
+}
+
+/* Ensure R OUTPUT badge is visible */
+div.absolute.bg-green-600 {
+  background-color: #16a34a !important;
+  color: white !important;
+}

@@ -1,0 +1,59 @@
+/* Chapter Navigation - Clean Cards */
+.chapter-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  margin-top: 4rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--color-border-primary);
+  gap: 1.5rem;
+}
+
+.chapter-nav-link {
+  display: flex;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  text-decoration: none;
+  color: var(--color-text-secondary);
+  transition: all var(--transition-smooth);
+  width: auto;
+  border-radius: 6px;
+  border: 1px solid var(--color-border-secondary);
+  background: var(--color-bg-secondary);
+}
+
+.chapter-nav-link:hover {
+  color: var(--color-text-primary);
+  background: var(--color-bg-elevated);
+  border-color: var(--color-accent-primary);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+.chapter-nav-icon {
+  width: 0.875rem;
+  height: 0.875rem;
+  flex-shrink: 0;
+  color: var(--color-text-tertiary);
+}
+
+.chapter-nav-link:hover .chapter-nav-icon {
+  color: var(--color-accent-primary);
+}
+
+.chapter-nav-label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-family: var(--font-jakarta), sans-serif;
+}
+
+.chapter-nav-title {
+  font-weight: 500;
+  margin-top: 0.375rem;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  font-family: var(--font-inter), sans-serif;
+}

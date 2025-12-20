@@ -1,0 +1,338 @@
+---
+title: 'Chapter 7: The Problems with Traditional JTBD Quantification'
+description: ''
+order: 12
+part: 'Quantify which outcomes are unmet'
+tags: ['fundamentals', 'theory', 'history']
+author: 'Braden Buchanan'
+hasInteractiveContent: true
+---
+
+<BookImage
+  src="/images/book/chapter-07/outcomeDrivenInnovationStep3.svg"
+  alt="Quantify which outcomes are unmet"
+  caption="Quantify which outcomes are unmet"
+  width={600}
+  height={300}
+  standalone={true}
+/>
+
+This chapter will potentially be the most controversial part of the entire book. After you have identified through interviews, secondary research, internal organizational studies, or other data sources, you will have a long list of needs. Ranging from needs from job steps, emotional or social needs, financial needs, complexity factors, and consumption chain jobs that need to be quantified. The next logical question is how do you quantify all of this?
+
+The traditional ODI approach has an answer for this through survey research and statistical analysis. While the established ODI approach offers one approach for quantification, it comes with drawbacks that teams need to understand before trying it themselves.
+
+The original ODI quant methods often fall short when they meet the real world of survey fatigue and the practical constraints most teams face. This chapter will walk you through the established ODI approach, examine the limitations, and prepare you to evaluate alternatives that may be more advantageous.
+
+
+## The Outcome-Driven Innovation Survey Approach
+
+The ODI survey approach that was started by Tony Ulwick uses a 5-point likert rating scale questions with importance and satisfaction being the main focus. Let's examine this approach to understand both its underlying logic.
+
+<BookImage
+  src="/images/book/chapter-07/ImportanceSatisfactionLikertScale.png"
+  alt="Importance and satisfaction liker scale"
+  caption="Importance and Satisfaction Likert Scale"
+  width={600}
+  height={300}
+  standalone={true}
+/>
+
+The ODI approach uses Likert scales because it's designed to measure **two distinct dimensions simultaneously**: **importance and satisfaction**. This dual measurement is the foundation for the **opportunity scoring algorithm** that calculates where the Strategyn argues are the biggest gaps exist between what customers want and what they currently get.
+
+Likert scales also allow ODI to treat each need as an independent variable. Every need gets its own importance and satisfaction rating, which means you can theoretically identify opportunities across your entire list without forcing customers to choose between needs that might not compete with each other in their minds.
+
+The approach **assumes customers can accurately self-report both how much they care about something and how well their current solutions perform**. This assumption works well for functional needs where customers have direct experience, but becomes more questionable for emotional or social needs where self-awareness may be limited.
+
+The downside is that this approach often leads to surveys that, thanks to the comprehensive needs list plus necessary screener and demographic questions, can easily end up being **50-125+ questions** (which obviously has downsides and is not possible for many organizations to field effectively).
+
+Tony has said, "We create a survey. It might have 100-150 different need statements in it, and we’ve created a way to get all those inputs from customers in a pretty quick period of time. We’ve been using similar techniques for 25 years, so we make it better and better over time.[11]
+
+We try to make sure the questionnaires are done in 25-30 minutes, which is fairly lengthy, but we often pay people to take the surveys and have good quality control checks to make sure that people aren’t finishing a 25-minute survey in five minutes.
+
+What we’ve discovered is that in most markets, maybe 10 to 15 percent of those taking surveys are fudging their way through the data sets, but they are eliminated, so we don’t worry about that. From that good set of data we can figure out which of the needs are important and unsatisfied
+" [[2]](https://www.intercom.com/blog/podcasts/podcast-tony-ulwick-on-jobs-to-be-done/)
+
+Before critiquing the approach further, we need to understand the mathematical approach that serves as the foundation for the entire ODI methodology. The opportunity scoring algorithm is what turns your raw importance and satisfaction ratings into what Strateygn argues as clear priorities. it's the reason ODI surveys are structured the way they are.
+
+Understanding how this algorithm works, and more critically, what assumptions it makes is necessary before evaluating alternatives. Let's look at the scoring algorithm in the next section.
+
+### Understanding the Opportunity Scoring Algorithm
+
+In Tony's own words, "This formula reveals which customer needs are most important and least satisfied the ones that represent the best opportunities for growth."[1](https://www.marketingjournal.org/the-path-to-growth-the-opportunity-algorithm-anthony-ulwick/#:~:text=To%20discover%20which,opportunities%20for%20growth.)
+
+> It's worth noting that, there is **never** one single metric that answers all of your business questions. There is no silver bullet. Chris Chapman, former Principal Quant UXR @ Google, Amazon, Microsoft, and Director of the Quant Conference wrote a great blog post titled, [North Star... a path to being lost](https://quantuxblog.com/north-star-a-path-to-being-lost) on this topic.
+
+The actual calculation involves a conversion step that often confuses newcomers. While an individual customer rates a need on a scale of 1 to 5, the algorithm converts these individual responses into a standardized aggregate score out of 10.
+
+This is why you will see final Opportunity Scores that go up to 20, even though the survey scale only went up to 5.
+
+- Importance Score = (respondents rating 4 or 5) ÷ (total respondents) × 10
+- Satisfaction Score = (respondents rating 4 or 5) ÷ (total respondents) × 10
+- Opportunity Score = Importance + max(0, Importance - Satisfaction)
+
+To understand how this works in practice, let's imagine we're researching the customer "job" of **planning a family vacation**. A key part of this job is booking flights. We're not focused on any specific solution like a website or an app; we're focused on the customer's underlying goal.
+
+#### Step 1: Creating the Initial Scores
+
+First, the algorithm converts raw survey responses into standardized 10-point scores for both **Importance** and **Satisfaction**. It uses a "top-2-box" method, counting the percentage of people who rated an need a 4 or 5 on the survey's 5-point scale.
+
+During our research, we find one of the key needs customers want is to **"minimize the time it takes to find flight options that fit my budget and schedule."** This is a solution-agnostic need because it describes the desired result without mentioning any specific tool or feature.
+
+- **Importance**: Let's say 270 out of 300 travelers rated this need as highly important (a 4 or 5). The math to create the standardized score would be:
+  `(270 ÷ 300) × 10 = 0.9 × 10`, which gives you an **Importance Score of 9**.
+
+- **Satisfaction**: However, when asked how satisfied they are with their ability to do this quickly using current tools, only 90 of those 300 travelers were highly satisfied. The Satisfaction Score would be:
+  `(90 ÷ 300) × 10 = 0.3 × 10`, which gives you a **Satisfaction Score of 3**.
+
+#### Step 2: Calculating the Final Opportunity Score
+
+Once you have these standardized scores, they get plugged into the final formula: `Opportunity Score = Importance + max(0, Importance - Satisfaction)`.
+
+In simple terms, the final score is the **Importance score plus any gap** where importance is higher than satisfaction. For our vacation planning example, with an Importance of 9 and a Satisfaction of 3, the calculation is `9 + (9 - 3)`, which results in a final **Opportunity Score of 15**.
+
+Ok, let's see how Strategyn uses these importance, satisfaction, and opportunity scores in their underlying methodology they promote.
+
+#### The Opportunity Landscape
+
+According to Strategyn, the real insight of this quantification and scoring is when you plot these importance and satisfaction scores on what Strategyn calls the Opportunity Landscape.
+
+<BookImage
+  src="/images/book/chapter-07/totalOpportunityLandscape.png"
+  alt="Total Opportunity Landscape"
+  caption="Opportunity Landscape"
+  width={600}
+  height={300}
+  standalone={true}
+/>
+
+This scatter plot puts importance on the horizontal axis and satisfaction on the vertical axis, creating a visual map that reveals where teams should focus.
+
+Needs/outcomes that fall in the bottom-right are "underserved" which are highly important to customers but poorly satisfied by current solutions. These are your "innovation" opportunities, the needs that should drive your product roadmap and receive the bulk of your innovation investment.
+
+Needs in the top-left are "overserved". These are well-satisfied but not particularly important to customers, which might indicate feature bloat or resources being allocated to things customers don't value.
+
+The diagonal line running from bottom-left to top-right represents the boundary where importance equals satisfaction. Needs below this line have satisfaction gaps and represent potential opportunities, while those above it are performing better than their importance level would suggest. The further an need sits from this line toward the underserved quadrant, the higher its opportunity score and the more compelling the business case for addressing it.
+
+This visualization helps turn abstract JTBD and ODI survey data into something _concrete_ that product teams can act on. Crucially, the data collected for the Opportunity Landscape serves as the direct foundation for Strategyn's "Needs-Based Segmentation." The methodology typically utilizes cluster analysis on the opportunity scores to identify groups of customers who value different needs.
+
+However, this creates a downstream risk regarding data quality. Effective segmentation relies on capturing nuance, specifically the variance in how different people rate different needs. If the input data is compromised by the survey fatigue described earlier where respondents straight-line their answers, or if the nuance is flattened by a "Top-Two-Box" approach that treats distinct preferences as identical, the clustering algorithm will fail to detect real behaviors.
+
+When you feed low-fidelity or fatigue-biased data into a clustering algorithm, the math will still force a result. It will create segments based on statistical noise rather than actual market differences. Teams risk allocating resources to "phantom segments" which are groups that look distinct on a spreadsheet but do not exist in the real world.
+## A Critique of the Opportunity Algorithm
+
+The ODI opportunity scoring algorithm presents itself as a systematic, objective method for identifying unmet needs and innovation opportunities, but from a research methodology perspective, it contains several fundamental flaws that undermine its reliability and validity. While the approach offers businesses the clean, potentially actionable outputs they need, these come at the cost of statistical rigor that may lead to misguided insights.
+
+### The Double-Weighting Problem
+
+The biggest issue lies in the algorithm's core formula. By definition, the formula counts the Importance score twice: once as the base, and again as part of the gap calculation.
+
+$$
+Opportunity = \mathbf{Importance} + (\mathbf{Importance} - Satisfaction)
+$$
+
+This isn't just a quirk of arithmetic; it is a structural bias that ensures **Importance will always dominate the Satisfaction Gap.** The algorithm effectively decides that a minor annoyance in a "very important" task is more essential to solve than a complete failure in a "moderately important" task.
+
+Let's look at how this distorts prioritization using our vacation planning example:
+
+  * **Need A (High Importance, Moderate Problem):** "Minimize time to find flights."
+      * Importance: 9 | Satisfaction: 6
+      * *The Gap is 3.*
+      * **Opportunity Score: 12**
+  * **Need B (Medium Importance, Total Failure):** "Minimize risk of hidden fees."
+      * Importance: 6 | Satisfaction: 0
+      * *The Gap is 6.*
+      * **Opportunity Score: 12**
+
+**The Critique:** Look closely at the results. Customers are **twice as frustrated** with Need B (a 6-point gap) compared to Need A (a distinct but smaller 3-point gap). Yet, the algorithm rates them as identical opportunities.
+
+By double-counting Importance, the ODI method systematically suppresses "low-hanging fruit" problems that are extremely annoying to customers but related to slightly less important tasks. It forces teams to chase marginal improvements in high-traffic areas while ignoring broken experiences elsewhere, simply because the math says importance matters more than frustration.
+
+
+
+
+### Top-Two-Box Problem
+
+The second major flaw is the methodology's reliance on **"top-two-box" analysis**, where scores are calculated by converting the 5-point scale into a simple "high/not high" binary. This approach treats a respondent who feels a need is absolutely critical (a rating of '5') the same as someone who feels it's just neutral (a rating of '3'), discarding information in the process.
+
+This method has been largely abandoned in other fields for this reason. As Gerry Katz points out, consumer goods researchers found that customers who "definitely" intended to buy a product (a '5') were often **five times more likely** to actually make a purchase than those who "probably" intended to buy (a '4'). Lumping these distinct levels of intent together, as ODI's scoring does, masks the true urgency and passion customers feel. This loss of nuance, combined with an arbitrary cutoff point for what counts as "high importance," can hide the very opportunities teams are trying to find.
+
+Based on their writings, authors Jeff Sauro and Jim Lewis would strongly agree with this assessment and add the following statistical concerns:
+
+- **It "Dilutes" the Predictive Signal.** They argue that the single **top-box** (only the '5's) is the more predictive metric for predicting behavior because it isolates the most passionate customers. By including the '4's, the ODI method dilutes signal with more moderate, less predictive feelings, a point that directly supports the example from Gerry Katz. They state, "Because measurements of extreme responses tend to be better predictors of future behavior than tepid responses, we prefer top-box to top-two-box measurements".[33]
+
+- **It Offers Little Advantage Over the Mean.** A point they would add is that top-two-box scores are often **highly correlated with the simple mean**. In one analysis, they found a correlation of .97 between the mean and top-two-box scores, meaning the shared variance is 94% (Sauro & Lewis, 2024). This indicates the top-two-box score provides virtually the same information as the mean, while being statistically less precise and losing the unique predictive power found in the less-correlated single top-box score.
+
+- **It Causes a Major Loss of Information and Precision.** This is the core problem with this approach. They would emphasize that by converting the 1-5 scale to a binary metric, the algorithm treats a '1' the same as a '3', discarding vast amounts of information. This isn't just a theoretical problem—it leads to tangible negative consequences like **wider margins of error** and the need for **larger sample sizes** to achieve statistical confidence.[32]
+
+### **The Survey Fatigue Problem**
+
+
+A major challenge in the ODI survey approach is the survey burden it places on respondents. Strategyn and Tony Ulwick advocate for surveys that include "100 or more desired need statements," as stated directly on their website. They claim that "knowing which of the 100 or more desired needs are most important and least satisfied pinpoints the opportunities for value creation" and recommend surveying "anywhere from 120 to 1200 customers, asking them to tell us the importance of each need and their current level of satisfaction." [2]
+
+From a survey science perspective, this approach presents validity challenges. Asking respondents to evaluate 100 or more needs, where each need requires both an importance and a satisfaction rating, creates a high cognitive burden. When combined with other demographic and screener questions, the length of these surveys often leads to survey fatigue and reduced response quality.
+
+<BookImage
+  src="/images/book/chapter-07/ExamplesOfJTBDSurveys.png"
+  alt="Examples of JTBD and ODI Surveys"
+  caption="Examples of JTBD and ODI Surveys"
+  width={600}
+  height={300}
+  standalone={true}
+  zoomable={true}
+/>
+
+The volume of questions forces the survey design into a format known as "Matrix Grids" where rows of needs intersect with columns of ratings. While this looks organized on a researcher's screen, it creates a difficult user experience for the respondent. On mobile devices, where roughly 50% of survey traffic now originates, these grids often require pinching and horizontal scrolling to view. This friction frequently leads to a behavior called "straight-lining" where a fatigued respondent simply clicks the same column, such as voting "4" for every single item, all the way down the page just to reach the next section. This creates data that looks complete but lacks distinct signal.
+
+To mitigate these data quality risks, Firms like Strategyn often move away from standard online panels and utilize high-touch methods like CATI (Computer-Assisted Telephone Interviewing) or managed CAVI (Computer-Assisted Web Interviewing). In a CATI approach, a human interviewer calls the respondent and verbally guides them through the survey to record the answers for them. In managed CAVI, respondents might be recruited into a live session or a supervised environment to ensure they are paying attention.
+
+While these methods effectively reduce straight-lining and robotic behavior, they introduce substantial barriers for modern product teams.
+
+**High Cost**:
+Utilizing human interviewers and managed panels increases the cost per response. While a standard online survey might cost a few dollars per respondent, CATI and managed CAVI approaches can raise budgets into the tens of thousands of dollars for a single study. This places this type of research out of reach for many organizations.
+
+**Persisting Cognitive Load**:
+Having a human interviewer read the questions does not solve the underlying design flaw. Even if the respondent is engaged, asking them to cognitively evaluate 100 separate items is mentally exhausting. By the 80th question, the respondent's ability to discern nuances between options like "Somewhat Important" and "Very Important" has likely degraded, regardless of who is asking the question.
+
+**Velocity**:
+Most product teams operate in agile environments requiring continuous discovery and quick feedback loops. Setting up a formal CATI study with recruited experts and phone banks often takes weeks or months. This slower process is rarely practical for teams that need to validate hypotheses and move forward in days rather than quarters.
+
+> **Author’s Note**: I often ask teams who are adamant about using this methodology if they have ever taken a 50+ question survey themselves. If they say yes, I ask about their honest experience: Did they maintain focus, or did they start "straight-lining" answers to finish faster? No matter how relevant the topic, there is a limit to how much cognitive load a respondent can handle. If they say no, I offer a challenge: Build a draft ODI survey and spend the full 25 minutes taking it yourself. Before asking customers to endure that experience, you should verify if it is an experience you are willing to endure.
+
+### **Bias Amplification:**
+
+Good research methodology attempts to account for systematic biases in self-reported data, but the ODI algorithm amplifies these distortions rather than correcting for them. Rating scale bias represents a fundamental challenge for any survey-based approach, and the ODI methodology is particularly vulnerable to these systematic measurement errors.
+
+Several biases are especially problematic for importance and satisfaction ratings in the ODI context. **Acquiescence bias** leads respondents to systematically rate needs as more important than they actually are, particularly when need statements are framed positively (as they typically are in ODI surveys). This inflates importance scores across the board, making it harder to distinguish truly underserved needs from merely desirable ones.
+
+**Social desirability bias** particularly affects importance ratings when customers feel pressure to appear rational or knowledgeable. For example, customers might overstate the importance of "data security" or "environmental sustainability" because these sound like things a responsible person should care about, even if they don't actually influence their purchase decisions. This systematic inflation of certain types of importance ratings skews the entire opportunity landscape.
+
+**Negativity bias in satisfaction ratings** compounds the problem from the other direction. Research shows that customers are naturally more likely to remember and report negative experiences than positive ones, leading to systematically deflated satisfaction scores. When combined with inflated importance ratings, this creates artificially large satisfaction gaps that don't reflect actual market opportunities.
+
+**Cultural response style differences** create additional systematic distortions that the algorithm treats as valid signal rather than measurement noise. Some cultural groups exhibit extreme response tendencies (gravitating toward 1s and 5s), while others show central tendency bias (clustering around 3s). When these different response patterns get mixed in the same dataset and processed through the opportunity algorithm, cultural differences in rating behavior can masquerade as meaningful differences in customer needs.
+
+The ODI approach's reliance on importance and satisfaction ratings makes it especially susceptible to these systematic biases.
+
+### **Validation Gap Section:**
+
+A fundamental issue underlying all these concerns is the lack of empirical validation for the algorithm itself, though this limitation exists within a broader context of business framework validation that deserves acknowledgment.
+
+To be fair, the absence of rigorous validation is not unique to ODI. Many widely-adopted business frameworks operate without comprehensive empirical validation of their core assumptions. Net Promoter Score, despite extensive criticism from statisticians, continues to provide organizational _value_ through its simplicity and ability to focus teams on customer advocacy. The Boston Consulting Group's Growth-Share Matrix lacks empirical validation for its strategic recommendations, yet remains a useful strategic thinking tool. Even fundamental approaches like market segmentation rarely undergo rigorous validation of their predictive power for business needs.
+
+The difference with ODI, however, lies in both the specificity of its mathematical claims and the magnitude of investment decisions it drives. While NPS functions primarily as a tracking metric and the Growth-Share Matrix serves as a strategic thinking framework, ODI explicitly positions itself as a precise method for identifying innovation opportunities that warrant major resource allocation. Strategyn's marketing claims, such as their assertion of "an 86 percent success rate, a five-fold improvement over the industry average," present the methodology as scientifically validated when no such validation has been provided.
+
+More problematically, the mathematical specificity of the opportunity algorithm creates an illusion of precision that can be misleading. When a framework produces scores like 14.7 versus 12.3 for different needs, it implies a level of measurement accuracy that the underlying methodology simply cannot support. This false precision becomes particularly dangerous when teams use small differences in opportunity scores to make major strategic decisions about where to invest resources.
+
+The lack of validation also means there's no evidence that the formula predicts successful opportunities better than simpler alternatives. Would a formula that weighted satisfaction gaps more heavily perform better? Would treating importance and satisfaction equally produce more reliable results? Without empirical testing, these remain open questions.
+
+What's needed isn't necessarily the same level of statistical rigor required for academic research, but rather **transparency** about the methodology's limitations and some form of cross-validation against business outcomes. Even simple retrospective analyses comparing ODI-driven innovation decisions against their market performance would provide valuable insight into where the approach works well and where it might lead teams astray.
+
+
+
+### The Actionability Problem: What Are Teams Supposed to Do With This?
+
+Set aside the statistical concerns for a moment. A practical question remains: what are product teams actually supposed to do with these opportunity scores?
+
+Consider the hypothetical analysis below, which shows realistic outputs from an ODI study for a music streaming application.
+
+<BookImage
+  src="/images/book/chapter-07/spotifyNeedsScoringExample.png"
+  alt="Illustrative: Spotify Needs Scoring Example"
+  caption="Illustrative: Spotify Needs Scoring Example"
+  width={600}
+  height={300}
+  standalone={true}
+  zoomable={true}
+/>
+
+Looking at the "Discovery & Curation" theme, teams might feel optimistic at first. The methodology has identified a clear winner: "Minimize the time it takes to find new music that fits a specific mood" scores 15.6, classified as an "Extreme Opportunity." But what happens when you try to turn this into a roadmap?
+
+**The clustering problem.** Three needs—avoiding playlist disruption (13.5), organizing songs into coherent playlists (13.2), and reducing repeated recommendations (12.5), all fall within the "High Opportunity" band. Their scores differ by only 1.0 to 1.3 points. Given the measurement error in survey data, can anyone confidently claim these represent different priorities? Is a 13.5 meaningfully distinct from a 12.5 when both numbers come from biased ratings processed through a formula that double-weights importance?
+
+**The "now what?" meeting.** Imagine presenting this to a product team. Someone will ask: "Should we tackle the 15.6 first, or would we get more value from addressing the cluster of 12-13 point needs together?" The methodology doesn't answer this. The algorithm produces ranked numbers, but nothing in the framework helps teams understand whether a 2-point difference justifies different investment levels or whether adjacent needs should be bundled into a single initiative.
+
+**The false precision trap.** The scores create a false sense of precision. Product managers (or other stakeholders) look at "15.6 versus 13.5" and instinctively treat these as exact measurements, like comparing prices or conversion rates. But these numbers emerged from self-reported ratings, converted through top-two-box analysis, and processed through an algorithm with known biases. The precision of the output overstates the precision of the underlying data.
+
+**The overserved paradox.** Look at the "Playback & Technical Performance" theme. These needs all score below 10, deemed "Appropriately Served" or "Overserved." The methodology says: don't invest here, maintain. But if competitors are equally strong in these areas, there may be no differentiation opportunity. And if the market shifted tomorrow—if a new entrant introduced reliability problems or usage patterns changed—these "overserved" areas could become important retention factors. ODI scoring is a snapshot. It provides no insight into competitive dynamics or future risk.
+
+**The interpretation burden.** Notice how much work falls on whoever presents this data. They must explain the scoring methodology, defend the cutoff thresholds, justify why a 15.6 warrants immediate action while a 12.5 merely requires monitoring, and somehow translate "minimize the likelihood of a playlist containing a song that disrupts the vibe" into actual product features. The framework identifies problems but offers no bridge to solutions.
+
+The result: teams invest substantial resources into quantitative research hoping for clear direction, only to find themselves in the same prioritization debates they would have had without the data. 
+
+The deeper issue is that ODI quantification tries to reduce complex product decisions to a single ranked list. Real product strategy requires understanding relationships between needs, evaluating technical feasibility, considering competitive positioning, and assessing organizational capabilities—none of which appear in an opportunity score. Teams need frameworks that inform these conversations, not numbers that claim to resolve them.
+
+
+
+### Summary of Concerns with the ODI Opportunity Algorithm Approach
+
+**Mathematical and Statistical Issues**
+
+- Double-weighting of importance in the formula creates an untested assumption that importance should dominate over satisfaction gaps
+- Top-two-box analysis discards valuable information by converting continuous scales into binary categories
+- Arbitrary cutoff points (4+ considered "high") affect results with no principled justification
+- Percentage-based scoring creates volatility and instability, especially with smaller sample sizes
+- No empirical validation that this formula predicts innovation success better than alternatives
+
+**Methodological Biases**
+
+- Algorithm amplifies systematic response biases rather than correcting for them
+- Social desirability bias gets magnified when customers overstate importance of things they think they should care about
+- Natural negativity bias in satisfaction ratings gets amplified in opportunity calculations
+- No statistical adjustments for known patterns in self-reported data
+
+**Structural Design Problems**
+
+- Independence assumption ignores interconnected nature of customer experiences
+- Treats needs as separate variables when many are causally related or represent trade-offs
+- No mechanism to identify when improving one need might negatively impact another
+- Missing factor analysis or relationship modeling between related needs
+
+**Survey Design and Quality Issues**
+
+- Surveys with 100+ need statements create severe respondent burden
+- Survey fatigue virtually guaranteed with such lengthy evaluations
+- Matrix questions rating 100+ items likely take 30-45 minutes to complete thoughtfully
+- Poor response quality from satisficing behaviors, straight-lining, or survey abandonment
+- Compromised data quality undermines entire analytical framework regardless of mathematical sophistication
+
+**Transparency and Validation Gaps**
+
+- No evidence presented that the approach actually predicts successful innovation opportunities
+- Methodology appears designed to produce clean outputs rather than accurate modeling
+- Presents statistically problematic methods as scientifically rigorous
+- Creates false confidence in potentially flawed conclusions
+- Lacks cross-validation against actual market performance or business needs
+
+**Fundamental Conceptual Issues**
+
+- Represents "looking scientific" rather than "being scientific"
+- Systematic bias that looks rigorous on the surface
+- Doesn't acknowledge trade-offs between business utility and statistical validity
+- May lead to misguided innovation investments based on methodologically flawed prioritization
+
+**Actionability and Interpretation Challenges**
+- Opportunity scores cluster together, making differentiation difficult
+- Small point differences (1-2 points) drive major strategic decisions despite measurement uncertainty
+- Framework identifies problems but provides no path to solutions
+- Teams end up in the same prioritization debates they would have had without the data
+
+Given these fundamental methodological concerns, organizations need practical alternatives that address these concerns while still providing actionable insights for teams. The next chapter explores a different approach that maintains practical utility while avoiding the statistical pitfalls and response quality issues that plague the traditional ODI methodology.
+
+## Chapter 7 Conclusion
+
+The ODI opportunity scoring algorithm represents a well-intentioned attempt to bring systematic rigor to innovation and needs prioritization, but my analysis reveals fundamental methodological flaws that can lead teams toward misguided investment decisions. The double-weighting of importance, information loss through top-two-box analysis, amplification of systematic biases, and heavy survey burden creates a mix of reliability issues.
+
+This doesn't mean quantification of customer needs is impossible or undesirable. Businesses absolutely need systematic methods for prioritizing innovation opportunities, and the intuitive appeal of measuring both importance and satisfaction gaps points toward genuine customer insight needs. The problem isn't with the goal of quantification, but with this particular approach to achieving it.
+
+The challenge moving forward is developing methods that maintain the business utility that makes ODI attractive while addressing its statistical and methodological shortcomings. We need approaches that can handle the practical constraints real organizations face. Such as limited survey response rates, budget restrictions, time pressures, and the cognitive limits of actual customers, without sacrificing the reliability needed for sound decisions.
+
+Fortunately, several alternative approaches exist that can provide actionable prioritization insights without falling into ODI's methodological traps. Some focus on more sophisticated statistical techniques that account for response biases and need relationships. Others take entirely different approaches to quantification that reduce survey burden while improving data quality. Still others combine quantitative and qualitative methods to create more robust insight frameworks.
+
+The next chapter explores these practical alternatives, examining approaches that teams are actually using successfully to quantify customer needs and prioritize innovation opportunities. Rather than throwing out quantification entirely, we'll look at methods that acknowledge the complexity of customer needs while still producing the clear, actionable outputs that innovation teams require. The goal isn't perfect measurement, it's reliable enough measurement that leads to better decisions than intuition alone.
+
+## Chapter 7 References
+
+[11] Traynor, Des. “Strategyn’s Tony Ulwick on Jobs-to-be-Done.” Intercom Blog (Podcast), 10 Dec. 2015. Available at: [https://www.intercom.com/blog/podcasts/podcast-tony-ulwick-on-jobs-to-be-done/](https://www.intercom.com/blog/podcasts/podcast-tony-ulwick-on-jobs-to-be-done/)
+
+[32] Sauro, Jeff. “Are Top Box Scores a Better Predictor of Behavior?” MeasuringU.com, 2 May 2018. Available at: [https://measuringu.com/top-box-behavior/](https://measuringu.com/top-box-behavior/)
+
+[33] Sauro, Jeff, and Jim Lewis. “Top Box, Top-Two Box, Bottom Box, or Net Box?” MeasuringU.com, 4 June 2024. Available at: [https://measuringu.com/top-top-two-bottom-net-box/](https://measuringu.com/top-box-behavior/)
